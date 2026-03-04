@@ -39,7 +39,6 @@ header{border-bottom:1px solid var(--border);padding:14px 20px;background:rgba(2
 .btn2:hover{border-color:var(--gold);color:var(--gold);}
 .card{background:#fff;border:1px solid var(--border);border-radius:5px;padding:16px;margin-bottom:9px;position:relative;overflow:hidden;animation:si 0.3s ease forwards;}
 .card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);}
-.card:hover{box-shadow:0 6px 30px rgba(15,14,13,0.1);transform:translateX(2px);}
 @keyframes si{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
 .cn{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;}
 .cm{font-size:0.76rem;color:#6b6560;margin:4px 0 6px;}
@@ -47,42 +46,32 @@ header{border-bottom:1px solid var(--border);padding:14px 20px;background:rgba(2
 .bt{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;padding:5px 10px;border-radius:3px;cursor:pointer;transition:all 0.2s;border:1px solid var(--border);background:transparent;color:var(--ink);}
 .bt:hover{background:var(--ink);color:var(--cream);}
 .bt.ac{background:var(--gold);border-color:var(--gold);color:var(--ink);}
-.bt.ac:hover{background:var(--rust);border-color:var(--rust);color:#fff;}
 .loading{text-align:center;padding:40px 20px;}
 .spin{width:32px;height:32px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:sp 0.8s linear infinite;margin:0 auto 12px;}
 @keyframes sp{to{transform:rotate(360deg);}}
 .lt{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:#9a9088;}
-.ls{font-size:0.76rem;color:#b8ada5;margin:3px 0;opacity:0;transition:opacity 0.3s;}
 .empty{text-align:center;padding:40px 20px;color:#b8ada5;}
-.ei{font-size:2.2rem;opacity:0.3;margin-bottom:8px;}
-.et{font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.14em;text-transform:uppercase;}
 .info{background:rgba(201,168,76,0.08);border:1px solid var(--border);border-radius:5px;padding:12px 16px;margin-bottom:16px;font-size:0.8rem;color:#7a6020;line-height:1.5;}
 .err{background:rgba(184,92,56,0.08);border:1px solid rgba(184,92,56,0.25);border-radius:5px;padding:12px 16px;font-size:0.8rem;color:var(--rust);line-height:1.5;}
 .toolbar{display:flex;align-items:center;gap:9px;margin-bottom:16px;flex-wrap:wrap;}
 .si{flex:1;min-width:160px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:7px 12px;font-family:'DM Sans',sans-serif;font-size:0.82rem;outline:none;}
-.si:focus{border-color:var(--gold);}
-table{width:100%;border-collapse:collapse;font-size:0.8rem;}
-thead tr{border-bottom:2px solid var(--border);}
-th{font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#9a9088;padding:8px 9px;text-align:left;white-space:nowrap;}
-td{padding:10px 9px;border-bottom:1px solid rgba(201,168,76,0.1);vertical-align:middle;}
-tr:hover td{background:rgba(201,168,76,0.04);}
 .mb{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 @media(max-width:650px){.mb{grid-template-columns:1fr;}}
 .pb{background:#fff;border:1px solid var(--border);border-radius:5px;overflow:hidden;}
 .ph{padding:11px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .pt{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:#9a9088;}
 .pbd{padding:16px;}
-.mp{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:16px;min-height:260px;font-size:0.84rem;line-height:1.7;white-space:pre-wrap;font-family:'DM Sans',sans-serif;}
+.mp{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:16px;min-height:200px;font-size:0.84rem;line-height:1.7;white-space:pre-wrap;font-family:'DM Sans',sans-serif;}
 .sd{display:flex;align-items:center;gap:9px;margin:20px 0 14px;color:#b8ada5;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;}
 .sd::before,.sd::after{content:'';flex:1;height:1px;background:var(--border);}
-.notif{position:fixed;bottom:18px;right:18px;background:var(--ink);color:var(--cream);padding:11px 16px;border-radius:5px;font-size:0.8rem;font-family:'DM Mono',monospace;letter-spacing:0.05em;z-index:1000;transform:translateY(60px);opacity:0;transition:all 0.3s;border-left:3px solid var(--gold);max-width:280px;}
+.notif{position:fixed;bottom:18px;right:18px;background:var(--ink);color:var(--cream);padding:11px 16px;border-radius:5px;font-size:0.8rem;font-family:'DM Mono',monospace;z-index:1000;transform:translateY(60px);opacity:0;transition:all 0.3s;border-left:3px solid var(--gold);max-width:280px;}
 .notif.show{transform:translateY(0);opacity:1;}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">Arte<span>Lead</span></div>
-  <span class="badge">⬡ Google Places</span>
+  <span class="badge">⬡ Places API</span>
 </header>
 <div class="wrap">
   <div class="hero">
@@ -101,23 +90,22 @@ tr:hover td{background:rgba(201,168,76,0.04);}
     <button class="tab" onclick="sw('mails',this)">✉️ Emails</button>
   </div>
   <div class="panel active" id="tab-buscar">
-    <div class="info">💡 Busca negocios reales en Google Places. Obtendrás nombre, dirección, teléfono y rating real.</div>
+    <div class="info">💡 Usa Google Places API directamente para encontrar negocios reales.</div>
     <div class="grid2">
       <div class="fg"><label>Tipo de negocio</label>
         <select id="ptype">
-          <option value="art gallery">Galerías de arte</option>
-          <option value="interior design">Decoradores de interiores</option>
-          <option value="luxury hotel">Hoteles de lujo</option>
+          <option value="art_gallery">Galerías de arte</option>
+          <option value="interior_design">Decoradores</option>
+          <option value="lodging">Hoteles de lujo</option>
           <option value="spa">Spas premium</option>
           <option value="museum">Museos</option>
-          <option value="wedding planner">Wedding planners</option>
-          <option value="real estate agency">Inmobiliarias de lujo</option>
-          <option value="photography studio">Estudios de fotografía</option>
-          <option value="event venue">Salones de eventos</option>
+          <option value="real_estate_agency">Inmobiliarias</option>
+          <option value="photographer">Fotógrafos</option>
+          <option value="event_venue">Salones de eventos</option>
         </select>
       </div>
       <div class="fg"><label>Ciudad</label>
-        <input type="text" id="ploc" placeholder="Ej: Ciudad de México, Miami..." value="Ciudad de México">
+        <input type="text" id="ploc" placeholder="Ej: Ciudad de México" value="Ciudad de México">
       </div>
       <div class="fg"><label>Radio</label>
         <select id="prad">
@@ -130,9 +118,9 @@ tr:hover td{background:rgba(201,168,76,0.04);}
       <div class="fg"><label>Rating mínimo</label>
         <select id="prat">
           <option value="0">Cualquiera</option>
-          <option value="3.5">3.5+ ⭐</option>
-          <option value="4.0" selected>4.0+ ⭐</option>
-          <option value="4.5">4.5+ ⭐ Premium</option>
+          <option value="3.5">3.5+</option>
+          <option value="4.0" selected>4.0+</option>
+          <option value="4.5">4.5+ Premium</option>
         </select>
       </div>
     </div>
@@ -188,29 +176,50 @@ tr:hover td{background:rgba(201,168,76,0.04);}
 </div>
 <div class="notif" id="notif"></div>
 <script>
+const GKEY='AIzaSyD-m-1vFnWRYqczEpvhtOBi9tD8D9LxZTA';
 let leads=JSON.parse(localStorage.getItem('al_leads')||'[]');
 let emails=JSON.parse(localStorage.getItem('al_emails')||'[]');
-let map,svc;
-function initMap(){map=new google.maps.Map(document.createElement('div'));svc=new google.maps.places.PlacesService(map);}
 function sw(name,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');if(btn)btn.classList.add('active');if(name==='lista')renderTable();if(name==='mails')renderSel();}
-function doSearch(){const btn=document.getElementById('bsearch');const res=document.getElementById('results');const loc=document.getElementById('ploc').value.trim();const type=document.getElementById('ptype').value;const rad=parseInt(document.getElementById('prad').value);const minR=parseFloat(document.getElementById('prat').value);if(!loc){notify('Escribe una ciudad');return;}if(!svc){notify('Google Maps aún carga, espera 2 segundos');return;}btn.disabled=true;res.innerHTML=`<div class="loading"><div class="spin"></div><div class="lt">Buscando en Google Places...</div><div id="steps" style="margin-top:10px"></div></div>`;step('Geocodificando: '+loc);new google.maps.Geocoder().geocode({address:loc},(gr,gs)=>{if(gs!=='OK'||!gr.length){res.innerHTML=`<div class="err">No se encontró "<strong>${loc}</strong>". Prueba con otra ciudad.</div>`;btn.disabled=false;return;}const center=gr[0].geometry.location;step('Ubicación: '+gr[0].formatted_address);step('Buscando "'+type+'" en '+rad/1000+'km...');svc.nearbySearch({location:center,radius:rad,keyword:type},(places,ps)=>{if(ps!==google.maps.places.PlacesServiceStatus.OK||!places.length){res.innerHTML=`<div class="err">Sin resultados. Prueba otro tipo o amplía el radio.</div>`;btn.disabled=false;return;}const filt=places.filter(p=>(p.rating||0)>=minR);if(!filt.length){res.innerHTML=`<div class="err">Ninguno con rating ${minR}+. Baja el filtro.</div>`;btn.disabled=false;return;}const top=filt.slice(0,8);step('✓ '+top.length+' negocios encontrados');const det=top.map(p=>({id:Date.now()+Math.random(),nombre:p.name,dir:p.vicinity||'—',tel:'—',web:'—',rating:p.rating||'—',reviews:p.user_ratings_total||0,tipo:type,ciudad:loc,maps:'https://www.google.com/maps/place/?q=place_id:'+p.place_id,fecha:new Date().toLocaleDateString('es',{day:'2-digit',month:'short',year:'numeric'})}));showResults(det,res);btn.disabled=false;});});}
-function step(t){const el=document.createElement('div');el.className='ls';el.textContent='→ '+t;const s=document.getElementById('steps');if(s){s.appendChild(el);setTimeout(()=>el.style.opacity=1,50);}}
-function showResults(places,res){if(!places.length){res.innerHTML=`<div class="err">No se obtuvieron resultados.</div>`;return;}leads=[...leads,...places];localStorage.setItem('al_leads',JSON.stringify(leads));updStats();res.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#9a9088">${places.length} negocios encontrados</span><button class="btn2" onclick="sw('lista',document.querySelectorAll('.tab')[1])">Ver lista →</button></div>`;places.forEach(p=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="cn">${p.nombre}</div>${p.rating!=='—'?`<span style="font-family:'DM Mono',monospace;font-size:0.6rem;background:rgba(201,168,76,0.15);color:#8a6d20;padding:3px 8px;border-radius:3px;white-space:nowrap">${p.rating} ⭐</span>`:''}</div><div class="cm">📍 ${p.dir}</div><div class="ca"><button class="bt ac" onclick="goMail(${p.id})">✉ Email</button>${p.maps?`<button class="bt" onclick="window.open('${p.maps}','_blank')">🗺 Maps</button>`:''}<button class="bt" style="color:var(--rust)" onclick="rmLead(${p.id})">✕</button></div>`;res.appendChild(c);});notify('✓ '+places.length+' negocios guardados');}
-function renderTable(){const c=document.getElementById('ltable');if(!leads.length){c.innerHTML=`<div class="empty"><div class="ei">◇</div><div class="et">Busca primero</div></div>`;return;}const q=(document.getElementById('fi')?.value||'').toLowerCase();const f=leads.filter(l=>l.nombre.toLowerCase().includes(q)||l.ciudad.toLowerCase().includes(q));c.innerHTML=`<div style="overflow-x:auto"><table><thead><tr><th>Nombre</th><th>Tipo</th><th>Ciudad</th><th>Rating</th><th>Fecha</th><th></th></tr></thead><tbody>${f.map(l=>`<tr><td style="font-family:'Playfair Display',serif;font-weight:700">${l.nombre}</td><td style="font-size:0.78rem">${l.tipo}</td><td style="font-size:0.78rem">${l.ciudad}</td><td style="font-size:0.78rem">${l.rating!=='—'?l.rating+' ⭐':'—'}</td><td style="font-size:0.7rem;color:#9a9088">${l.fecha}</td><td><button class="bt ac" onclick="goMail(${l.id})">✉</button></td></tr>`).join('')}</tbody></table></div><div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:#9a9088">${f.length} leads</div>`;}
+async function doSearch(){
+  const btn=document.getElementById('bsearch');
+  const res=document.getElementById('results');
+  const loc=document.getElementById('ploc').value.trim();
+  const type=document.getElementById('ptype').value;
+  const rad=document.getElementById('prad').value;
+  const minR=parseFloat(document.getElementById('prat').value);
+  if(!loc){notify('Escribe una ciudad');return;}
+  btn.disabled=true;
+  res.innerHTML=`<div class="loading"><div class="spin"></div><div class="lt">Buscando en Google Places...</div></div>`;
+  try{
+    const geoRes=await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(loc)}&key=${GKEY}`);
+    const geoData=await geoRes.json();
+    if(geoData.status!=='OK'||!geoData.results.length){res.innerHTML=`<div class="err">No se encontró "${loc}".</div>`;btn.disabled=false;return;}
+    const {lat,lng}=geoData.results[0].geometry.location;
+    const searchRes=await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${rad}&type=${type}&key=${GKEY}`);
+    const searchData=await searchRes.json();
+    if(searchData.status!=='OK'||!searchData.results.length){res.innerHTML=`<div class="err">Sin resultados. Prueba otro tipo o amplía el radio.</div>`;btn.disabled=false;return;}
+    const places=searchData.results.filter(p=>(p.rating||0)>=minR).slice(0,10).map(p=>({id:Date.now()+Math.random(),nombre:p.name,dir:p.vicinity||'—',rating:p.rating||'—',reviews:p.user_ratings_total||0,tipo:type,ciudad:loc,maps:`https://www.google.com/maps/place/?q=place_id:${p.place_id}`,fecha:new Date().toLocaleDateString('es',{day:'2-digit',month:'short',year:'numeric'})}));
+    if(!places.length){res.innerHTML=`<div class="err">Ninguno con rating ${minR}+. Baja el filtro.</div>`;btn.disabled=false;return;}
+    leads=[...leads,...places];localStorage.setItem('al_leads',JSON.stringify(leads));updStats();
+    res.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#9a9088">${places.length} negocios encontrados</span><button class="btn2" onclick="sw('lista',document.querySelectorAll('.tab')[1])">Ver lista →</button></div>`;
+    places.forEach(p=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="cn">${p.nombre}</div>${p.rating!=='—'?`<span style="font-family:'DM Mono',monospace;font-size:0.6rem;background:rgba(201,168,76,0.15);color:#8a6d20;padding:3px 8px;border-radius:3px;white-space:nowrap">${p.rating} ⭐</span>`:''}</div><div class="cm">📍 ${p.dir}</div><div class="ca"><button class="bt ac" onclick="goMail(${p.id})">✉ Email</button><button class="bt" onclick="window.open('${p.maps}','_blank')">🗺 Maps</button><button class="bt" style="color:var(--rust)" onclick="rmLead(${p.id})">✕</button></div>`;res.appendChild(c);});
+    notify('✓ '+places.length+' negocios guardados');
+  }catch(e){res.innerHTML=`<div class="err">Error de conexión. Intenta de nuevo.</div>`;}
+  btn.disabled=false;
+}
+function renderTable(){const c=document.getElementById('ltable');if(!leads.length){c.innerHTML=`<div class="empty"><div style="font-size:2rem;opacity:0.3">◇</div><div style="font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Busca primero</div></div>`;return;}const q=(document.getElementById('fi')?.value||'').toLowerCase();const f=leads.filter(l=>l.nombre.toLowerCase().includes(q)||l.ciudad.toLowerCase().includes(q));c.innerHTML=`<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.8rem"><thead><tr style="border-bottom:2px solid var(--border)"><th style="font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#9a9088;padding:8px 9px;text-align:left">Nombre</th><th style="font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#9a9088;padding:8px 9px;text-align:left">Ciudad</th><th style="font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#9a9088;padding:8px 9px;text-align:left">Rating</th><th style="padding:8px 9px"></th></tr></thead><tbody>${f.map(l=>`<tr style="border-bottom:1px solid rgba(201,168,76,0.1)"><td style="padding:10px 9px;font-family:'Playfair Display',serif;font-weight:700">${l.nombre}</td><td style="padding:10px 9px;font-size:0.78rem">${l.ciudad}</td><td style="padding:10px 9px;font-size:0.78rem">${l.rating!=='—'?l.rating+' ⭐':'—'}</td><td style="padding:10px 9px"><button class="bt ac" onclick="goMail(${l.id})">✉</button></td></tr>`).join('')}</tbody></table></div><div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:#9a9088">${f.length} leads</div>`;}
 function exportCSV(){if(!leads.length){notify('No hay leads');return;}const h=['Nombre','Tipo','Ciudad','Dirección','Rating','Reseñas','Fecha'];const rows=leads.map(l=>[l.nombre,l.tipo,l.ciudad,l.dir,l.rating,l.reviews,l.fecha].map(v=>`"${v||''}"`).join(','));const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\uFEFF'+[h.join(','),...rows].join('\n')],{type:'text/csv;charset=utf-8;'}));a.download='arteleads_'+new Date().toISOString().slice(0,10)+'.csv';a.click();notify('✓ CSV exportado');}
 function clearAll(){if(!confirm('¿Borrar todo?'))return;leads=[];localStorage.setItem('al_leads','[]');updStats();renderTable();notify('Limpiado');}
 function rmLead(id){leads=leads.filter(l=>l.id!=id);localStorage.setItem('al_leads',JSON.stringify(leads));updStats();notify('Eliminado');}
 function renderSel(){const s=document.getElementById('msel');s.innerHTML='<option value="">— Elige un negocio —</option>';leads.forEach(l=>{const o=document.createElement('option');o.value=l.id;o.textContent=`${l.nombre} — ${l.ciudad}${l.rating!=='—'?' ('+l.rating+'⭐)':''}`;s.appendChild(o);});renderHist();}
-async function genMail(){const id=parseFloat(document.getElementById('msel').value);if(!id){notify('Selecciona un negocio');return;}const lead=leads.find(l=>l.id==id);if(!lead)return;const tone=document.getElementById('mtone').value;const val=document.getElementById('mval').value;const sender=document.getElementById('msender').value||'Artista';const prev=document.getElementById('mprev');prev.innerHTML='<div style="color:#b8ada5;font-size:0.76rem">Generando email...</div>';try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`Eres experto en ventas de arte de lujo. Crea un email de prospección en ESPAÑOL para este negocio real:\n\nNegocio: ${lead.nombre}\nTipo: ${lead.tipo}\nCiudad: ${lead.ciudad}\nDirección: ${lead.dir}\nRating Google: ${lead.rating} (${lead.reviews} reseñas)\n\nTono: ${tone}\nPropuesta: ${val}\nRemitente: ${sender}\nMáx 180 palabras. Incluir "Asunto: ..." al inicio. Menciona el nombre real del negocio. Llamada a acción clara.`}]})});const data=await r.json();const text=data.content.map(i=>i.text||'').join('').trim();prev.style.whiteSpace='pre-wrap';prev.textContent=text;const e={id:Date.now(),nombre:lead.nombre,ciudad:lead.ciudad,texto:text,fecha:new Date().toLocaleDateString('es')};emails.unshift(e);if(emails.length>20)emails=emails.slice(0,20);localStorage.setItem('al_emails',JSON.stringify(emails));updStats();renderHist();notify('✓ Email generado para '+lead.nombre);}catch(e){prev.innerHTML='<span style="color:var(--rust)">Error. Verifica conexión.</span>';}}
+async function genMail(){const id=parseFloat(document.getElementById('msel').value);if(!id){notify('Selecciona un negocio');return;}const lead=leads.find(l=>l.id==id);if(!lead)return;const tone=document.getElementById('mtone').value;const val=document.getElementById('mval').value;const sender=document.getElementById('msender').value||'Artista';const prev=document.getElementById('mprev');prev.innerHTML='<div style="color:#b8ada5;font-size:0.76rem">Generando email...</div>';try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`Eres experto en ventas de arte de lujo. Crea un email de prospección en ESPAÑOL para este negocio real:\n\nNegocio: ${lead.nombre}\nTipo: ${lead.tipo}\nCiudad: ${lead.ciudad}\nRating Google: ${lead.rating} (${lead.reviews} reseñas)\n\nTono: ${tone}\nPropuesta: ${val}\nRemitente: ${sender}\nMáx 180 palabras. Incluir "Asunto: ..." al inicio. Menciona el nombre real del negocio. Llamada a acción clara.`}]})});const data=await r.json();const text=data.content.map(i=>i.text||'').join('').trim();prev.style.whiteSpace='pre-wrap';prev.textContent=text;const e={id:Date.now(),nombre:lead.nombre,ciudad:lead.ciudad,texto:text,fecha:new Date().toLocaleDateString('es')};emails.unshift(e);if(emails.length>20)emails=emails.slice(0,20);localStorage.setItem('al_emails',JSON.stringify(emails));updStats();renderHist();notify('✓ Email generado para '+lead.nombre);}catch(e){prev.innerHTML='<span style="color:var(--rust)">Error. Verifica conexión.</span>';}}
 function renderHist(){const c=document.getElementById('ehist');if(!emails.length){c.innerHTML='';return;}c.innerHTML=emails.slice(0,4).map(e=>`<div class="card" style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700">${e.nombre}</div><div style="font-size:0.7rem;color:#9a9088;font-family:'DM Mono',monospace;margin-top:2px">${e.ciudad} · ${e.fecha}</div></div><button class="bt ac" onclick="cpEmail(${e.id})">Copiar</button></div><div style="font-size:0.78rem;color:#6b6560;margin-top:7px;line-height:1.5;max-height:55px;overflow:hidden">${e.texto.slice(0,160)}...</div></div>`).join('');}
 function cpEmail(id){const e=emails.find(x=>x.id===id);if(e){navigator.clipboard.writeText(e.texto);notify('✓ Copiado');}}
 function copyMail(){const t=document.getElementById('mprev').textContent;if(!t||t.includes('Selecciona')){notify('Genera primero');return;}navigator.clipboard.writeText(t);notify('✓ Email copiado');}
 function goMail(id){sw('mails',document.querySelectorAll('.tab')[2]);setTimeout(()=>{const s=document.getElementById('msel');if(s)s.value=id;},150);}
-function cp(t){navigator.clipboard.writeText(t);notify('✓ Copiado: '+t);}
 function notify(m){const e=document.getElementById('notif');e.textContent=m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),3000);}
 function updStats(){document.getElementById('s1').textContent=leads.length;document.getElementById('s2').textContent=leads.filter(l=>l.rating>=4.5).length;document.getElementById('s3').textContent=emails.length;document.getElementById('s4').textContent=leads.length;}
 updStats();
 </script>
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-m-1vFnWRYqczEpvhtOBi9tD8D9LxZTA&libraries=places&callback=initMap"></script>
 </body>
 </html>
